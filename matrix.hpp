@@ -25,13 +25,13 @@ class Matrix {
         Matrix(std::initializer_list<std::initializer_list<Type> >, unsigned _rows = 0, unsigned _cols = 0, const Type _initial = 0);
         virtual ~Matrix();
 
-        Matrix<Type>& operator=(const Matrix<Type>& rhs);
-        Matrix<Type> operator+(const Matrix<Type>& rhs);
-        Matrix<Type>& operator+=(const Matrix<Type>& rhs);
-        Matrix<Type> operator-(const Matrix<Type>& rhs);
-        Matrix<Type>& operator-=(const Matrix<Type>& rhs);
-        Matrix<Type> operator*(const Matrix<Type>& rhs);
-        Matrix<Type>& operator*=(const Matrix<Type>& rhs);
+        Matrix<Type>& operator= (const Matrix<Type>& rhs);
+        Matrix<Type> operator+ (const Matrix<Type>& rhs);
+        Matrix<Type>& operator+= (const Matrix<Type>& rhs);
+        Matrix<Type> operator- (const Matrix<Type>& rhs);
+        Matrix<Type>& operator-= (const Matrix<Type>& rhs);
+        Matrix<Type> operator* (const Matrix<Type>& rhs);
+        Matrix<Type>& operator*= (const Matrix<Type>& rhs);
         bool operator== (const Matrix<Type>& rhs);
         bool circa(const Matrix<Type>& rhs, const Type& tolerance);
 
