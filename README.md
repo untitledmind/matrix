@@ -8,5 +8,5 @@ Requires C++11 or higher to compile.
 Access elements by index i,j (where i is row and j is column):
 
 ```c++
-M[3][4] // returns 1
+M[3][4]     // returns 1
 ```
