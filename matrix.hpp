@@ -25,6 +25,12 @@ class Matrix {
         Matrix(std::initializer_list<std::initializer_list<Type> >, unsigned _rows = 0, unsigned _cols = 0, const Type _initial = 0);
         virtual ~Matrix();
 
+        // Access the individual elements
+        Type& operator() (const unsigned& row, const unsigned& col);
+        const Type& operator() (const unsigned& row, const unsigned& col) const;
+        std::vector<Type>& operator[] (const unsigned& el);
+        const std::vector<Type>& operator[] (const unsigned& el) const;
+
         Matrix<Type>& operator= (const Matrix<Type>& rhs);
         Matrix<Type> operator+ (const Matrix<Type>& rhs);
         Matrix<Type>& operator+= (const Matrix<Type>& rhs);
@@ -34,6 +40,16 @@ class Matrix {
         Matrix<Type>& operator*= (const Matrix<Type>& rhs);
         bool operator== (const Matrix<Type>& rhs);
         bool circa(const Matrix<Type>& rhs, const Type& tolerance);
+
+        // Matrix/scalar operations
+        Matrix<Type> operator+ (const Type& rhs);
+        Matrix<Type> operator- (const Type& rhs);
+        Matrix<Type> operator* (const Type& rhs);
+        Matrix<Type> operator/ (const Type& rhs);
+
+        // Matrix/vector operations
+        std::vector<Type> operator* (const std::vector<Type>& rhs);
+        std::vector<Type> diag_vec();
 
         Matrix<Type> transpose();
         void swapRows(int i, int j);
@@ -49,24 +65,7 @@ class Matrix {
         std::vector<Type> jacobi(const Type& tolerance, const int& max_iter = 100);
         std::vector<Type> gauss_seidel(const Type& tolerance, const int& max_iter = 100);
 
-        // Matrix/scalar operations
-        Matrix<Type> operator+ (const Type& rhs);
-        Matrix<Type> operator- (const Type& rhs);
-        Matrix<Type> operator* (const Type& rhs);
-        Matrix<Type> operator/ (const Type& rhs);
-
-        // Matrix/vector operations
-        std::vector<Type> operator* (const std::vector<Type>& rhs);
-        std::vector<Type> diag_vec();
-
-        // Access the individual elements
-        Type& operator() (const unsigned& row, const unsigned& col);
-        const Type& operator() (const unsigned& row, const unsigned& col) const;
-        std::vector<Type>& operator[] (const unsigned& el);
-        const std::vector<Type>& operator[] (const unsigned& el) const;
-
         void set_value(int i, int j, const Type& value);
-
         unsigned get_rows() const;
         unsigned get_cols() const;
 
