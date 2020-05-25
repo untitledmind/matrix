@@ -196,7 +196,6 @@ Matrix<Type>& Matrix<Type>::operator-= (const Matrix<Type>& rhs) {
     return *this;
 }
 
-// Left multiplication of this matrix and another
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator* (const Matrix<Type>& rhs) {
     if (this->cols != rhs.get_rows()) {

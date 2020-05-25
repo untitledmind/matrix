@@ -2,13 +2,24 @@
 #define MATRIX_CPP
 
 #include "matrix.h"
+<<<<<<< HEAD
 
 template<typename Type>
 Matrix<Type>::Matrix(unsigned rows_, unsigned cols_, const Type initial_) {
+=======
+#include <cmath>
+#include <complex>
+#include <iostream>
+#include <iomanip>
+
+template<typename T>
+Matrix<T>::Matrix(unsigned rows_, unsigned cols_, const T initial_) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     // Parameter Constructor
     mat.resize(rows_);
     for (unsigned i=0; i<mat.size(); ++i) {
         mat[i].resize(cols_, initial_);
+<<<<<<< HEAD
         rows = rows_;
         cols = cols_;
     }
@@ -16,15 +27,29 @@ Matrix<Type>::Matrix(unsigned rows_, unsigned cols_, const Type initial_) {
 
 template<typename Type>
 Matrix<Type>::Matrix(const Matrix<Type>& rhs) {
+=======
+    rows = rows_;
+    cols = cols_;
+}
+
+template<typename T>
+Matrix<T>::Matrix(const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     // Copy Constructor
     mat = rhs.mat;
     rows = rhs.get_rows();
     cols = rhs.get_cols();
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type>::Matrix(std::initializer_list<std::initializer_list<Type> > lst, unsigned rows_,
     unsigned cols_, const Type initial_): Matrix(lst.size(), lst.size()+1, initial_) {
+=======
+template<typename T>
+Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T> > lst, unsigned rows_,
+    unsigned cols_, const T initial_): Matrix(lst.size(), lst.size()+1, initial_) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     int i = 0;
     int j = 0;
     for (const auto& row : lst) {
@@ -37,11 +62,19 @@ Matrix<Type>::Matrix(std::initializer_list<std::initializer_list<Type> > lst, un
     }
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type>::~Matrix() {}
 
 template<typename Type>
 Matrix<Type>& Matrix<Type>::operator= (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T>::~Matrix() {}
+
+template<typename T>
+Matrix<T>& Matrix<T>::operator= (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 // Assignment Operator
     if (&rhs != this) {
         unsigned new_rows = rhs.get_rows();
@@ -63,8 +96,13 @@ Matrix<Type>& Matrix<Type>::operator= (const Matrix<Type>& rhs) {
 }
     
 // Addition of two matrices
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator+ (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator+ (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if (rows != rhs.rows || cols != rhs.cols) {
         std::cout << "matrices are not same size" << std::endl;
         exit(1);
@@ -78,8 +116,13 @@ Matrix<Type> Matrix<Type>::operator+ (const Matrix<Type>& rhs) {
     return result;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type>& Matrix<Type>::operator+= (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T>& Matrix<T>::operator+= (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if (rows != rhs.rows & cols != rhs.cols) {
         std::cout << "matrices are not same size" << std::endl;
         exit(1);
@@ -95,8 +138,13 @@ Matrix<Type>& Matrix<Type>::operator+= (const Matrix<Type>& rhs) {
     return *this;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator- (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator- (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if (rows != rhs.rows & cols != rhs.cols) {
         std::cout << "matrices are not same size" << std::endl;
         exit(1);
@@ -113,8 +161,13 @@ Matrix<Type> Matrix<Type>::operator- (const Matrix<Type>& rhs) {
     return result;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type>& Matrix<Type>::operator-= (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T>& Matrix<T>::operator-= (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if(rows != rhs.rows || cols != rhs.cols){
         std::cout << "matrices are not same size" << std::endl;
         exit(1);
@@ -131,8 +184,13 @@ Matrix<Type>& Matrix<Type>::operator-= (const Matrix<Type>& rhs) {
 }
 
 // Left multiplication of this matrix and another
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator* (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator* (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if (this->cols != rhs.get_rows()) {
         std::cout << "\nmatrices are not congurent" << std::endl;
         std::cout << "\nthis->get_rows()= " << this->get_rows();
@@ -153,8 +211,13 @@ Matrix<Type> Matrix<Type>::operator* (const Matrix<Type>& rhs) {
 }
 
 // Cumulative left multiplication of this matrix and another
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type>& Matrix<Type>::operator*= (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+Matrix<T>& Matrix<T>::operator*= (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if (rows != rhs.rows || cols != rhs.cols) {
         std::cout << "matrices are not same size" << std::endl;
         exit(1);
@@ -166,8 +229,13 @@ Matrix<Type>& Matrix<Type>::operator*= (const Matrix<Type>& rhs) {
     return *this;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::transpose() {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::transpose() {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     Matrix result(cols, rows, 0.0);    //flip dimensions
 
     for (unsigned i=0; i<cols; ++i)
@@ -177,6 +245,7 @@ Matrix<Type> Matrix<Type>::transpose() {
     return result;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 void Matrix<Type>::swapRows(int i, int j) {
     std::swap(mat[i],mat[j]);
@@ -187,6 +256,18 @@ void Matrix<Type>::Pivot(int row, int col) {
     //create next pivot element
     std::cout << "Entering Pivot function " << "Row = " << row << " Col = " << col << std::endl;
     Type max(0);
+=======
+template<typename T>
+void Matrix<T>::swapRows(int i, int j) {
+    std::swap(mat[i],mat[j]);
+}
+
+template<typename T>
+void Matrix<T>::Pivot(int row, int col) {
+    //create next pivot element
+    std::cout << "Entering Pivot function " << "Row = " << row << " Col = " << col << std::endl;
+    T max(0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     for (int i = row; i < rows; ++i) {
         max = mat[i][col];
         for (int row = i+1; row < rows; ++row) {
@@ -200,10 +281,17 @@ void Matrix<Type>::Pivot(int row, int col) {
 
 
 
+<<<<<<< HEAD
 template<typename Type>
 void Matrix<Type>::Permute(int col){
     std::cout << "Entering Permuted function - column col = " << col << std::endl;
     Type max(0);
+=======
+template<typename T>
+void Matrix<T>::Permute(int col){
+    std::cout << "Entering Permuted function - column col = " << col << std::endl;
+    T max(0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     for (int i = 0; i < rows; ++i) {
         max = mat[i][col];
         for (int row = i+1; row < rows; ++row) {
@@ -215,24 +303,42 @@ void Matrix<Type>::Permute(int col){
     }
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::PermutationMatrix(int Size, int row1, int row2) {
     Matrix P(Size, Size, Type(0));
 
     for (int i = 0; i < Size; ++i)
         P.set_value(i,i,Type(1));        //unity diagonal elements
+=======
+template<typename T>
+Matrix<T> Matrix<T>::PermutationMatrix(int Size, int row1, int row2) {
+    Matrix P(Size, Size, T(0));
+
+    for (int i = 0; i < Size; ++i)
+        P.set_value(i,i,T(1));        //unity diagonal elements
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     std::cout << "finished setting diagonal elements"<< std::endl;
     std::swap(P.mat[row1], P.mat[row2]);
 
     return P;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::block_multiply(const Matrix<Type>& rhs) {
     if (this->cols != rhs.rows)
         throw(std::runtime_error("operation doesn'Type support these dimensions\n"));
 
     Matrix<Type> temp(this->rows, rhs.cols, 0.0);
+=======
+template<typename T>
+Matrix<T> Matrix<T>::block_multiply(const Matrix<T>& rhs) {
+    if (this->cols != rhs.rows)
+        throw(std::runtime_error("operation doesn't support these dimensions\n"));
+
+    Matrix<T> temp(this->rows, rhs.cols, 0.0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     for (int i=0; i < this->rows; ++i)
     for (int j=0; j < rhs.cols; ++j)
@@ -242,6 +348,7 @@ Matrix<Type> Matrix<Type>::block_multiply(const Matrix<Type>& rhs) {
     return temp;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::Inverse() {
     std::cout << "Entering Inverse " << std::endl;
@@ -254,6 +361,20 @@ Matrix<Type> Matrix<Type>::Inverse() {
 
     for(int i = 0; i < cols; ++i)
         I.mat[i][i] = Type(1);
+=======
+template<typename T>
+Matrix<T> Matrix<T>::Inverse() {
+    std::cout << "Entering Inverse " << std::endl;
+    Matrix<T> temp(*this);
+
+    /* Augmenting Identity Matrix of Order row x col */
+    Matrix<T> I(rows, cols, T(0));
+    T a = T(0.0);
+    T ratio = T(0);
+
+    for(int i = 0; i < cols; ++i)
+        I.mat[i][i] = T(1);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     for (int i = 0; i < rows; ++i)
     for (int j = 0; j < cols; ++j)
@@ -276,11 +397,19 @@ Matrix<Type> Matrix<Type>::Inverse() {
 }
 
 
+<<<<<<< HEAD
 template<typename Type>
 Type Matrix<Type>::Determinant()
 {
     Type dtr(0);
     Matrix<Type> submat(rows, cols, Type(0));
+=======
+template<typename T>
+T Matrix<T>::Determinant()
+{
+    T dtr(0);
+    Matrix<T> submat(rows, cols, T(0));
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     for (int i = 0; i < rows; ++i)
     for (int j = 0; j < cols; ++j)
@@ -292,18 +421,31 @@ Type Matrix<Type>::Determinant()
 }
 
 
+<<<<<<< HEAD
 template<typename Type>
 Type Matrix<Type>::determinant(Matrix<Type>& submat,int row, int col) {
     Matrix<Type> Submat(rows,cols, Type(0));
     Type det(0);
+=======
+template<typename T>
+T Matrix<T>::determinant(Matrix<T>& submat,int row, int col) {
+    Matrix<T> Submat(rows,cols, T(0));
+    T det(0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     if (row == 2)
         det = submat.mat[0][0] * submat.mat[1][1] - submat.mat[1][0] * submat.mat[0][1];
     else
         for (int x = 0; x < row; ++x) {
+<<<<<<< HEAD
             Type subi = Type(0); 
             for (int i = 1; i < row; ++i) {
                 Type subj = Type(0);
+=======
+            T subi = T(0); 
+            for (int i = 1; i < row; ++i) {
+                T subj = T(0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
                 for (int j = 0; j < col; ++j) {
                     if (j == x)
                         continue;
@@ -318,16 +460,28 @@ Type Matrix<Type>::determinant(Matrix<Type>& submat,int row, int col) {
     return det;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 std::vector<Type> Matrix<Type>::gauss_jordan(const char& pivoting) {
     if (cols != rows+1)
         throw(std::runtime_error("*this must be augmented square matrix to call this method"));
+=======
+template<typename T>
+vector<T> Matrix<T>::gauss_jordan(const char& pivoting) {
+    if (cols != rows+1)
+        throw(runtime_error("*this must be augmented square matrix to call this method"));
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     int i;
     int j;
     int k;
+<<<<<<< HEAD
     Type scalar;
     Matrix<Type> M = *this;
+=======
+    T scalar;
+    Matrix<T> M = *this;
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     std::cout << "Read matrix as:\n";
     std::cout << M;
@@ -366,7 +520,11 @@ std::vector<Type> Matrix<Type>::gauss_jordan(const char& pivoting) {
                 
                 // rescale pivot if not 1 (to get identity matrix)
                 if (M.mat[k][k] != 1) {
+<<<<<<< HEAD
                     Type temp = M.mat[k][k];
+=======
+                    T temp = M.mat[k][k];
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
                     for (i = 0; i < cols; ++i)
                         M.mat[k][i] *= 1 / temp;
                 }
@@ -391,7 +549,11 @@ std::vector<Type> Matrix<Type>::gauss_jordan(const char& pivoting) {
                 
                 // rescale pivot if not 1 (to get identity matrix)
                 if (M.mat[k][k] != 1) {
+<<<<<<< HEAD
                     Type temp = M.mat[k][k];
+=======
+                    T temp = M.mat[k][k];
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
                     for (i = 0; i < cols; ++i)
                         M.mat[k][i] *= 1 / temp;
                 }
@@ -404,7 +566,11 @@ std::vector<Type> Matrix<Type>::gauss_jordan(const char& pivoting) {
     std::cout << M;
 
     std::cout << "\nThe solution is reached for the following coefficients:\n";
+<<<<<<< HEAD
     std::vector<Type> soln;
+=======
+    vector<T> soln;
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     for (i = 0; i < rows; ++i) {
         std::cout << "X" << i + 1 << " = " << M.mat[i][rows] << '\n';
         soln.push_back(M.mat[i][rows]);
@@ -412,18 +578,31 @@ std::vector<Type> Matrix<Type>::gauss_jordan(const char& pivoting) {
     return soln;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 std::vector<Type> Matrix<Type>::jacobi(const Type& tolerance, const int& max_iter) {
     Matrix<Type> M = *this;
     std::vector<Type> x;    // solution vector
     std::vector<Type> x_old;
     std::vector<Type> b;    // augmented coefficients
+=======
+template<typename T>
+vector<T> Matrix<T>::jacobi(const T& tolerance, const int& max_iter) {
+    Matrix<T> M = *this;
+    vector<T> x;    // solution vector
+    vector<T> x_old;
+    vector<T> b;    // augmented coefficients
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     // these variables abide by Mx = b
 
     int iter = 0;
 
     for (int i=0; i < rows; ++i) {
+<<<<<<< HEAD
         x.push_back(Type(0));
+=======
+        x.push_back(T(0));
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
         x_old.push_back(x[i]);
         b.push_back(M[i][cols-1]);
     }
@@ -432,8 +611,13 @@ std::vector<Type> Matrix<Type>::jacobi(const Type& tolerance, const int& max_ite
         for (int i = 0; i < rows; ++i) {
             x_old[i] = x[i];
 
+<<<<<<< HEAD
             Type bi = b[i];
             Type ci = M[i][i];
+=======
+            T bi = b[i];
+            T ci = M[i][i];
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
             for (int j = 0; j < rows; ++j)
                 if (j != i)
@@ -442,7 +626,11 @@ std::vector<Type> Matrix<Type>::jacobi(const Type& tolerance, const int& max_ite
             x[i] = bi/ci;        
         }
 
+<<<<<<< HEAD
         Type diff = Type(0);
+=======
+        T diff = T(0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
         for (int i = 0; i < rows; ++i) {
             diff += x[i] - x_old[i];
             printf("%7.4f\t", x[i]);
@@ -465,6 +653,7 @@ std::vector<Type> Matrix<Type>::jacobi(const Type& tolerance, const int& max_ite
     return x;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 std::vector<Type> Matrix<Type>::gauss_seidel(const Type& tolerance, const int& max_iter) {
     Matrix<Type> M = *this;
@@ -476,6 +665,19 @@ std::vector<Type> Matrix<Type>::gauss_seidel(const Type& tolerance, const int& m
     for (int i=0; i < rows; ++i) {
         x.push_back(Type(0));
         x_old.push_back(Type(0));
+=======
+template<typename T>
+vector<T> Matrix<T>::gauss_seidel(const T& tolerance, const int& max_iter) {
+    Matrix<T> M = *this;
+    vector<T> x;
+    vector<T> x_old;
+    vector<T> b;
+    int iter = 0;
+
+    for (int i=0; i < rows; ++i) {
+        x.push_back(T(0));
+        x_old.push_back(T(0));
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
         b.push_back(M[i][cols-1]);
     }
 
@@ -484,8 +686,13 @@ std::vector<Type> Matrix<Type>::gauss_seidel(const Type& tolerance, const int& m
             x_old[i] = x[i];
 
         for (int i=0; i < rows; ++i) {
+<<<<<<< HEAD
             Type bi = b[i];
             Type ci = M[i][i];
+=======
+            T bi = b[i];
+            T ci = M[i][i];
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
             for (int j=0; j < i; ++j)
                 bi -= M[i][j] * x[j];
@@ -496,7 +703,11 @@ std::vector<Type> Matrix<Type>::gauss_seidel(const Type& tolerance, const int& m
             x[i] = bi/ci;
         }
 
+<<<<<<< HEAD
         Type diff = Type(0);
+=======
+        T diff = T(0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
         for (int i=0; i < rows; ++i) {
             diff += x[i] - x_old[i];
@@ -518,8 +729,13 @@ std::vector<Type> Matrix<Type>::gauss_seidel(const Type& tolerance, const int& m
     return x;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator+ (const Type& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator+ (const T& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     Matrix result(rows, cols, 0.0);
 
     for (unsigned i=0; i<rows; ++i)
@@ -529,8 +745,13 @@ Matrix<Type> Matrix<Type>::operator+ (const Type& rhs) {
     return result;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator- (const Type& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator- (const T& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     Matrix result(rows, cols, 0.0);
 
     for (unsigned i=0; i<rows; ++i)
@@ -541,8 +762,13 @@ Matrix<Type> Matrix<Type>::operator- (const Type& rhs) {
 }
 
 // Matrix/scalar multiplication
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator* (const Type& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator* (const T& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     Matrix result(rows, cols, 0.0);
 
     for (unsigned i=0; i<rows; ++i)
@@ -553,8 +779,13 @@ Matrix<Type> Matrix<Type>::operator* (const Type& rhs) {
 }
 
 // Matrix/scalar division
+<<<<<<< HEAD
 template<typename Type>
 Matrix<Type> Matrix<Type>::operator/ (const Type& rhs) {
+=======
+template<typename T>
+Matrix<T> Matrix<T>::operator/ (const T& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     Matrix result(rows, cols, 0.0);
 
     for (unsigned i=0; i<rows; ++i)
@@ -565,9 +796,15 @@ Matrix<Type> Matrix<Type>::operator/ (const Type& rhs) {
 }
 
 // Multiply a matrix with a vector
+<<<<<<< HEAD
 template<typename Type>
 std::vector<Type> Matrix<Type>::operator* (const std::vector<Type>& rhs) {
     std::vector<Type> result(rhs.size(), 0.0);
+=======
+template<typename T>
+vector<T> Matrix<T>::operator* (const vector<T>& rhs) {
+    vector<T> result(rhs.size(), 0.0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     for (unsigned i=0; i<rows; ++i)
     for (unsigned j=0; j<cols; ++j)
@@ -576,8 +813,13 @@ std::vector<Type> Matrix<Type>::operator* (const std::vector<Type>& rhs) {
     return result;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 bool Matrix<Type>::operator== (const Matrix<Type>& rhs) {
+=======
+template<typename T>
+bool Matrix<T>::operator== (const Matrix<T>& rhs) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     if (this->rows != rhs.get_rows() || this->cols != rhs.get_cols())
         return false;
 
@@ -588,8 +830,13 @@ bool Matrix<Type>::operator== (const Matrix<Type>& rhs) {
     return true;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 bool Matrix<Type>::circa(const Matrix<Type>& rhs, const Type& tolerance) {
+=======
+template<typename T>
+bool Matrix<T>::circa(const Matrix<T>& rhs, const T& tolerance) {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     // test for approximate equality
     if (this->rows != rhs.get_rows() || this->cols != rhs.get_cols())
         return false;
@@ -601,10 +848,17 @@ bool Matrix<Type>::circa(const Matrix<Type>& rhs, const Type& tolerance) {
     return true;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 std::vector<Type> Matrix<Type>::diag_vec() {
     // Obtain a std::vector of the diagonal elements
     std::vector<Type> result(rows, 0.0);
+=======
+template<typename T>
+vector<T> Matrix<T>::diag_vec() {
+    // Obtain a vector of the diagonal elements
+    vector<T> result(rows, 0.0);
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
 
     for (unsigned i=0; i<rows; ++i)
         result[i] = this->mat[i][i];
@@ -612,6 +866,7 @@ std::vector<Type> Matrix<Type>::diag_vec() {
     return result;
 }
 
+<<<<<<< HEAD
 template<typename Type>
 Type& Matrix<Type>::operator()(const unsigned& row, const unsigned& col) {
     return this->mat[row][col];
@@ -644,11 +899,45 @@ unsigned Matrix<Type>::get_rows() const {
 
 template<typename Type>
 unsigned Matrix<Type>::get_cols() const {
+=======
+template<typename T>
+T& Matrix<T>::operator()(const unsigned& row, const unsigned& col) {
+    return this->mat[row][col];
+}
+
+template<typename T>
+const T& Matrix<T>::operator()(const unsigned& row, const unsigned& col) const {
+    return this->mat[row][col];
+}
+
+template<typename T>
+vector<T>& Matrix<T>::operator[] (const unsigned& elem) {
+    return this->mat[elem];
+}
+
+template<typename T>
+const vector<T>& Matrix<T>::operator[] (const unsigned& elem) const {
+    return this->mat[elem];
+}
+
+
+template<typename T>
+unsigned Matrix<T>::get_rows() const {
+    return this->rows;
+}
+
+template<typename T>
+unsigned Matrix<T>::get_cols() const {
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     return this->cols;
 }
 
 template<typename U>
+<<<<<<< HEAD
 std::ostream& operator<<(std::ostream& os, Matrix<U> rhs){
+=======
+ostream& operator<<(ostream &os, Matrix<U> rhs){
+>>>>>>> e1df4651d568782c8f0a74d467cdcc667fbb1626
     int row = rhs.get_rows();
     int col = rhs.get_cols();
 
