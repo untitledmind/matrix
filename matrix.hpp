@@ -31,12 +31,12 @@ class Matrix {
         std::vector<Type>& operator[] (const unsigned& el);
         const std::vector<Type>& operator[] (const unsigned& el) const;
 
-        Matrix<Type>& operator= (const Matrix<Type>& rhs);
         Matrix<Type> operator+ (const Matrix<Type>& rhs);
-        Matrix<Type>& operator+= (const Matrix<Type>& rhs);
         Matrix<Type> operator- (const Matrix<Type>& rhs);
-        Matrix<Type>& operator-= (const Matrix<Type>& rhs);
         Matrix<Type> operator* (const Matrix<Type>& rhs);
+        Matrix<Type>& operator= (const Matrix<Type>& rhs);
+        Matrix<Type>& operator+= (const Matrix<Type>& rhs);
+        Matrix<Type>& operator-= (const Matrix<Type>& rhs);
         Matrix<Type>& operator*= (const Matrix<Type>& rhs);
         bool operator== (const Matrix<Type>& rhs);
         bool circa(const Matrix<Type>& rhs, const Type& tolerance);
